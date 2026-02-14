@@ -34,9 +34,9 @@ cd .cursor/skills/youtube-feed && node dist/get_feed.js @hubermanlab --json
 
 **By channel name (optional):**
 
-If you have a `channels.json` file in your **home directory** (`~/channels.json`), you can pass a channel handle and the skill will look up the ID:
+If you have a `channels.json` file in the **current working directory** (e.g. project root when you run from there), you can pass a channel handle and the skill will look up the ID:
 
-Format of `~/channels.json`:
+Format of `channels.json`:
 
 ```json
 {

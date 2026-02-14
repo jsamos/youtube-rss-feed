@@ -5,7 +5,7 @@
  * Usage:
  *   node dist/get_feed.js CHANNEL_ID              # list: title + date (default)
  *   node dist/get_feed.js CHANNEL_ID --json       # full feed as JSON for analysis
- *   node dist/get_feed.js @channelname            # requires ~/channels.json
+ *   node dist/get_feed.js @channelname            # requires channels.json in cwd
  *
  * Example:
  *   node dist/get_feed.js UC2D2CMWXMOVWx7giW1n3LIg
@@ -14,11 +14,10 @@
 
 import { readFileSync, existsSync } from "fs";
 import { join } from "path";
-import { homedir } from "os";
 import Parser from "rss-parser";
 
 const FEED_URL = "https://www.youtube.com/feeds/videos.xml?channel_id={channel_id}";
-const CHANNELS_FILE = join(homedir(), "channels.json");
+const CHANNELS_FILE = join(process.cwd(), "channels.json");
 
 interface ChannelsFile {
   channels: Record<string, string>;
